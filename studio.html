@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio | VASTU</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-blue: #1A237E;
+            --sky-blue: #81D4FA;
+            --white: #FFFFFF;
+            --light-gray: #F4F7F9;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Lora', serif; background-color: var(--white); color: var(--deep-blue); overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed; width: 100%; padding: 20px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transition: 0.3s;
+        }
+        nav.scrolled { background: var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 15px 50px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--deep-blue); }
+        .logo a { text-decoration: none; color: inherit; }
+        .nav-links a { text-decoration: none; color: var(--deep-blue); margin-left: 30px; font-weight: 600; font-size: 0.9rem; }
+        .nav-links a.btn { color: var(--white); }
+        .nav-links a.btn:hover { color: var(--deep-blue); }
+        .btn {
+            padding: 15px 40px; background: var(--deep-blue); color: var(--white);
+            text-decoration: none; border-radius: 50px; display: inline-block;
+            transition: 0.3s; font-family: 'Montserrat'; font-size: 0.8rem;
+        }
+        .btn:hover { transform: translateY(-5px); background: var(--sky-blue); color: var(--deep-blue); }
+
+        /* --- Mobile Menu --- */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 1001; }
+        .menu-toggle .bar { width: 25px; height: 3px; background-color: var(--deep-blue); margin: 4px 0; transition: 0.4s; }
+        .menu-toggle.active .bar:nth-child(1) { transform: translate(0, 11px) rotate(-45deg); }
+        .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+        .menu-toggle.active .bar:nth-child(3) { transform: translate(0, -11px) rotate(45deg); }
+
+        /* --- Studio Specific --- */
+        .studio-header { padding: 150px 10% 50px; text-align: center; background: var(--light-gray); }
+        .studio-header h1 { font-size: 3rem; color: var(--deep-blue); }
+        .studio-header p { font-size: 1.2rem; color: #555; max-width: 600px; margin: 20px auto 0; }
+        
+        .services { padding: 50px 10%; text-align: center; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .service-card {
+            background: var(--light-gray); padding: 50px; border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.02); transition: 0.4s;
+            border-bottom: 5px solid transparent;
+        }
+        .service-card:hover { border-bottom: 5px solid var(--sky-blue); transform: translateY(-5px); }
+        
+        .team-section { padding: 50px 10% 100px; display: flex; gap: 50px; align-items: center; }
+        .team-section img { width: 45%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .team-content { width: 55%; }
+        .team-content h2 { font-size: 2.5rem; color: var(--deep-blue); margin-bottom: 20px; }
+        .team-content p { font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 20px; }
+
+        .process-section { padding: 50px 10% 100px; display: flex; gap: 50px; align-items: center; background: var(--light-gray); }
+        .process-section img { width: 45%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+                background: var(--white); display: flex; flex-direction: column;
+                justify-content: center; align-items: center; transition: 0.5s ease-in-out;
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { margin: 20px 0; font-size: 1.5rem; }
+            
+            .team-section, .process-section { flex-direction: column; }
+            .team-section img, .team-content, .process-section img { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo"><a href="index.html">VASTU</a></div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html#home">HOME</a>
+            <a href="index.html#experience">EXPERIENCE</a>
+            <a href="portfolio.html">PORTFOLIO</a>
+            <a href="studio.html">STUDIO</a>
+            <a href="index.html#contact" class="btn" style="padding: 10px 25px;">GET QUOTE</a>
+        </div>
+    </nav>
+
+    <section class="studio-header">
+        <h1>THE <span style="color: var(--sky-blue);">STUDIO</span></h1>
+        <p>Meet the team behind the designs and learn about our meticulous process for crafting the perfect spaces.</p>
+    </section>
+
+    <section class="services">
+        <h2>OUR EXPERTISE</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3 style="color: var(--sky-blue); margin-bottom: 15px;">Residential</h3>
+                <p>Creating cozy, luxurious homes tailored to your personality and lifestyle. We focus on harmony and flow.</p>
+            </div>
+            <div class="service-card">
+                <h3 style="color: var(--sky-blue); margin-bottom: 15px;">Commercial</h3>
+                <p>High-efficiency office layouts designed to boost productivity and branding. Environments that inspire.</p>
+            </div>
+            <div class="service-card">
+                <h3 style="color: var(--sky-blue); margin-bottom: 15px;">Consultation</h3>
+                <p>Expert 1-on-1 advice on color theory, material selection, and space planning. Your vision, realized.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <img src="images/hero_bg.png" alt="Our Studio">
+        <div class="team-content">
+            <h2>DESIGNING WITH PURPOSE</h2>
+            <p>At VASTU, we believe that every space has a story waiting to be told. Our studio is comprised of award-winning architects, passionate interior designers, and visionary planners.</p>
+            <p>We work collaboratively with our clients, ensuring that every detail—from the flow of natural light to the texture of the materials—aligns with their vision and lifestyle. We don't just decorate rooms; we craft environments that elevate your daily life.</p>
+            <a href="index.html#contact" class="btn" style="margin-top: 15px;">WORK WITH US</a>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="team-content">
+            <h2>OUR PROCESS</h2>
+            <p>From initial concept to final execution, our process is designed to be seamless, transparent, and collaborative. We carefully select materials, like premium marble and custom furnishings, to ensure quality and longevity.</p>
+            <p>Whether it's a cozy residential project or a high-efficiency commercial layout, we combine modern minimalism with our signature blue-toned aesthetics to create truly breathtaking spaces.</p>
+        </div>
+        <img src="images/gallery4.png" alt="Our Process">
+    </section>
+
+    <script>
+        // Scroll Effect for Navbar
+        window.onscroll = function() {
+            let nav = document.getElementById('navbar');
+            if (window.pageYOffset > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        };
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

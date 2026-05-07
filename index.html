@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VASTU | Premium Interior & Architecture</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-blue: #1A237E;
+            --sky-blue: #81D4FA;
+            --white: #FFFFFF;
+            --light-gray: #F4F7F9;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Lora', serif; background-color: var(--white); color: var(--deep-blue); overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed; width: 100%; padding: 20px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transition: 0.3s;
+        }
+        nav.scrolled { background: var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 15px 50px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--deep-blue); }
+        .nav-links a { text-decoration: none; color: var(--deep-blue); margin-left: 30px; font-weight: 600; font-size: 0.9rem; }
+        .nav-links a.btn { color: var(--white); }
+        .nav-links a.btn:hover { color: var(--deep-blue); }
+
+        /* --- Hero Section (Unique Split Design) --- */
+        .hero {
+            height: 100vh; display: flex; align-items: center;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 60%, var(--sky-blue) 60%), url('images/hero_bg.png') center/cover;
+            position: relative; overflow: hidden;
+        }
+        .hero-content { padding: 0 10%; width: 60%; position: relative; z-index: 2; }
+        .hero-right-text {
+            position: absolute; right: 5%; bottom: 10%;
+            font-size: 6rem; font-family: 'Montserrat', sans-serif; font-weight: 800;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 15px; pointer-events: none; z-index: 1;
+        }
+        .hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; color: var(--deep-blue); }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; color: #555; max-width: 500px; }
+        .btn {
+            padding: 15px 40px; background: var(--deep-blue); color: var(--white);
+            text-decoration: none; border-radius: 50px; display: inline-block;
+            transition: 0.3s; font-family: 'Montserrat'; font-size: 0.8rem;
+        }
+        .btn:hover { transform: translateY(-5px); background: var(--sky-blue); color: var(--deep-blue); }
+
+        /* --- Stats Section (Asymmetric) --- */
+        .stats { display: flex; padding: 100px 10%; background: var(--light-gray); position: relative; }
+        .stat-card { flex: 1; padding: 40px; border-left: 2px solid var(--sky-blue); }
+        .stat-card h2 { font-size: 3rem; color: var(--sky-blue); }
+
+        /* --- Services (Floating Cards) --- */
+        .services { padding: 100px 10%; text-align: center; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .service-card {
+            background: var(--white); padding: 50px; border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05); transition: 0.4s;
+            border-bottom: 5px solid transparent;
+        }
+        .service-card:hover { border-bottom: 5px solid var(--sky-blue); transform: scale(1.02); }
+        .service-card i { font-size: 2rem; color: var(--sky-blue); margin-bottom: 20px; display: block; }
+
+        /* --- Gallery Section --- */
+        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); height: 600px; background: #eee; overflow: hidden; }
+        .gallery-item { background-size: cover; background-position: center; transition: all 0.5s ease; cursor: pointer; position: relative; z-index: 1; }
+        .gallery:hover .gallery-item { filter: grayscale(100%) opacity(0.5); }
+        .gallery-item:hover { filter: grayscale(0%) opacity(1) !important; transform: scale(1.05); z-index: 2; }
+
+        /* --- Contact (Glassmorphism) --- */
+        .contact {
+            padding: 100px 10%; background: url('images/contact_bg.png') center/cover;
+            background-attachment: fixed; position: relative;
+        }
+        .contact::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 35, 126, 0.7); }
+        .contact-inner {
+            position: relative; z-index: 1; background: var(--glass); 
+            backdrop-filter: blur(10px); padding: 60px; max-width: 800px; margin: auto; border-radius: 30px;
+        }
+        .contact input, .contact textarea {
+            width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ccc;
+            border-radius: 10px; background: transparent;
+        }
+
+        /* --- Mobile Menu --- */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 1001; }
+        .menu-toggle .bar { width: 25px; height: 3px; background-color: var(--deep-blue); margin: 4px 0; transition: 0.4s; }
+        .menu-toggle.active .bar:nth-child(1) { transform: translate(0, 11px) rotate(-45deg); }
+        .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+        .menu-toggle.active .bar:nth-child(3) { transform: translate(0, -11px) rotate(45deg); }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: #000; color: #fff; padding: 60px 10%;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;
+        }
+        .footer h3 { color: var(--sky-blue); margin-bottom: 20px; }
+        .footer p { line-height: 1.8; opacity: 0.8; font-size: 0.95rem; }
+        .footer .contact-info p { display: flex; flex-direction: column; margin-bottom: 15px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+                background: var(--white); display: flex; flex-direction: column;
+                justify-content: center; align-items: center; transition: 0.5s ease-in-out;
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { margin: 20px 0; font-size: 1.5rem; }
+            .hero { flex-direction: column; text-align: center; background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('images/hero_bg.png') center/cover; }
+            .hero-right-text { display: none; }
+            .hero-content { width: 100%; padding-top: 150px; }
+            .hero h1 { font-size: 2.5rem; }
+            .stats { flex-direction: column; padding: 50px 10%; }
+            .stat-card { border-left: none; border-bottom: 2px solid var(--sky-blue); padding: 30px 0; }
+            .gallery { grid-template-columns: 1fr; height: auto; }
+            .gallery-item { min-height: 300px; }
+            .contact { padding: 80px 5%; }
+            .contact-inner { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">VASTU</a></div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="#home">HOME</a>
+            <a href="#experience">EXPERIENCE</a>
+            <a href="portfolio.html">PORTFOLIO</a>
+            <a href="studio.html">STUDIO</a>
+            <a href="#contact" class="btn" style="padding: 10px 25px;">GET QUOTE</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>ELEVATING <br><span style="color: var(--sky-blue);">LIVING SPACES</span></h1>
+            <p>Bespoke interior solutions where modern functionality meets timeless blue-toned aesthetics. Crafting the future of home design.</p>
+            <a href="#contact" class="btn">START A PROJECT</a>
+        </div>
+        <div class="hero-right-text">VASTU</div>
+    </section>
+
+    <section class="stats" id="experience">
+        <div class="stat-card">
+            <h2>12+</h2>
+            <p>Years of Architectural Excellence</p>
+        </div>
+        <div class="stat-card">
+            <h2>450+</h2>
+            <p>Modern Living Projects Completed</p>
+        </div>
+        <div class="stat-card">
+            <h2>03+</h2>
+            <p>International Design Awards</p>
+        </div>
+    </section>
+
+    <section class="services" id="studio">
+        <h2>OUR EXPERTISE</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Residential</h3>
+                <p>Creating cozy, luxurious homes tailored to your personality and lifestyle.</p>
+            </div>
+            <div class="service-card">
+                <h3>Commercial</h3>
+                <p>High-efficiency office layouts designed to boost productivity and branding.</p>
+            </div>
+            <div class="service-card">
+                <h3>Consultation</h3>
+                <p>Expert 1-on-1 advice on color theory, material selection, and space planning.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="portfolio">
+        <div class="gallery-item" style="background-image: url('images/gallery1.png')"></div>
+        <div class="gallery-item" style="background-image: url('images/gallery2.png')"></div>
+        <div class="gallery-item" style="background-image: url('images/gallery3.png')"></div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-inner">
+            <h2 style="margin-bottom: 30px; text-align: center;">Let's Talk Design</h2>
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Email Address" required>
+                <textarea id="message" rows="5" placeholder="Tell us about your space..." required></textarea>
+                <button type="submit" class="btn" style="border: none; width: 100%; cursor: pointer;">SEND ENQUIRY</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-about">
+            <h3>VASTU</h3>
+            <p>At VASTU, we blend modern aesthetics with timeless design principles to create living spaces that resonate with your lifestyle. From concept to completion, our dedicated team ensures every project is a masterpiece of architectural excellence and interior comfort.</p>
+        </div>
+        <div class="footer-contact">
+            <h3>LOCATION & CONTACT</h3>
+            <div class="contact-info">
+                <p><strong>Address:</strong><br>Office Ln, opposite of Tripura Sports Council, Dhaleswar, Agartala, Tripura 799001</p>
+                <p><strong>Phone:</strong><br>07005872568</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Effect for Navbar
+        window.onscroll = function() {
+            let nav = document.getElementById('navbar');
+            if (window.pageYOffset > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        };
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Form Submission Mock
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = 'SENDING...';
+            setTimeout(() => {
+                alert('Thank you for your enquiry! We will get back to you soon.');
+                this.reset();
+                btn.innerText = originalText;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
