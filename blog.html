@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Blog | VASTU</title>
+    <meta name="description" content="Insights, trends, and inspiration for your next dream project. Read our latest thoughts on modern construction, sustainable design, and luxury home design in Agartala, Tripura.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Lora:ital,wght@0,400;1,400&family=Yeseva+One&family=Orbitron:wght@400;700;900&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#d3e4fe",
+                        "surface-bright": "#f7f9fb",
+                        "tertiary": "#00668a",
+                        "on-secondary-fixed": "#001e2c",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-surface-variant": "#45464d",
+                        "surface": "#f7f9fb",
+                        "surface-tint": "#565e74",
+                        "secondary-fixed-dim": "#7bd0ff",
+                        "on-primary-container": "#7c839b",
+                        "tertiary-container": "#0b1c30",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-background": "#191c1e",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary-fixed": "#c4e7ff",
+                        "primary": "#00668a",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-low": "#f2f4f6",
+                        "inverse-primary": "#bec6e0",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c6c6cd",
+                        "outline": "#76777d",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "primary-container": "#131b2e",
+                        "primary-fixed": "#dae2fd",
+                        "secondary": "#00668a",
+                        "on-surface": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#40c2fd",
+                        "on-secondary-fixed-variant": "#004c69",
+                        "surface-container": "#eceef0",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#75859d",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "surface-variant": "#e0e3e5",
+                        "background": "#f7f9fb",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#131b2e",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-secondary-container": "#004d6a",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "stack-md": "32px",
+                        "gutter": "32px",
+                        "margin-desktop": "80px",
+                        "stack-sm": "16px",
+                        "margin-mobile": "20px",
+                        "stack-lg": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --deep-blue: #4A90E2;
+            --sky-blue: #81D4FA;
+            --white: #FFFFFF;
+            --light-gray: #F4F7F9;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed; width: 100%; padding: 30px 60px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transition: 0.3s;
+            background: rgba(74, 144, 226, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        nav.scrolled { padding: 20px 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); background: var(--deep-blue); }
+        .logo { font-family: 'Yeseva One', serif; font-size: 2.8rem; font-weight: 400; color: var(--white); letter-spacing: 4px; line-height: 1; display: flex; flex-direction: column; text-decoration: none; }
+        .logo a { text-decoration: none; color: inherit; display: block; }
+        .nav-links a { font-family: 'Orbitron', sans-serif; text-decoration: none; color: var(--white); margin-left: 40px; font-weight: 600; font-size: 0.85rem; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--sky-blue); }
+
+        /* --- Dropdown Menu --- */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-menu {
+            position: absolute; top: 150%; left: 50%; transform: translateX(-50%);
+            background: var(--white); min-width: 220px; border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); padding: 15px 0;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 1000;
+        }
+        .dropdown:hover .dropdown-menu { top: 120%; opacity: 1; visibility: visible; }
+        .dropdown-menu a {
+            display: block !important; margin: 0 !important; padding: 12px 30px !important;
+            color: #333 !important; font-weight: 500 !important; font-size: 0.95rem !important; text-transform: capitalize; letter-spacing: 0 !important; transition: 0.3s;
+        }
+        .dropdown-menu a:hover { color: var(--deep-blue) !important; background: var(--light-gray); padding-left: 35px !important; }
+
+        /* --- Mobile Menu --- */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 1001; }
+        .menu-toggle .bar { width: 25px; height: 3px; background-color: var(--white); margin: 4px 0; transition: 0.4s; }
+        .menu-toggle.active .bar:nth-child(1) { transform: translate(0, 7px) rotate(-45deg); }
+        .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+        .menu-toggle.active .bar:nth-child(3) { transform: translate(0, -7px) rotate(45deg); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            nav { padding: 20px; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+                background: var(--deep-blue); display: flex; flex-direction: column;
+                justify-content: center; align-items: center; transition: 0.5s ease-in-out;
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { margin: 20px 0; font-size: 1.5rem; color: var(--white); }
+            .dropdown { display: flex; flex-direction: column; align-items: center; }
+            .dropdown-menu { position: static; transform: none; box-shadow: none; background: transparent; display: none; padding: 0; opacity: 1; visibility: visible; }
+            .dropdown:hover .dropdown-menu { display: flex; flex-direction: column; align-items: center; }
+            .dropdown-menu a { font-size: 1.1rem !important; color: var(--sky-blue) !important; padding: 10px !important; margin: 10px 0 !important; }
+        }
+
+        /* --- Page Spacing --- */
+        main {
+            padding-top: 140px !important;
+        }
+        @media (max-width: 768px) {
+            main {
+                padding-top: 100px !important;
+            }
+        }
+
+        /* --- Masonry Grid --- */
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-auto-rows: 10px;
+        }
+        .masonry-item {
+            margin-bottom: 32px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: #00668a; color: #fff; padding: 60px 10%;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;
+        }
+        .footer h3 { color: var(--sky-blue); margin-bottom: 20px; font-family: 'Montserrat', sans-serif; font-size: 1.8rem; }
+        .footer p { line-height: 1.8; opacity: 0.9; font-size: 0.95rem; font-family: 'Lora', serif; }
+        .footer .contact-info p { display: flex; flex-direction: column; margin-bottom: 15px; font-family: 'Lora', serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-secondary-fixed selection:text-on-secondary-fixed font-body-md">
+
+    <!-- Global Fixed Navigation -->
+    <nav id="navbar">
+        <div class="logo">
+            <a href="index.html">VASTU</a>
+            <span style="display: block; font-size: 0.75rem; font-family: 'Montserrat', sans-serif; letter-spacing: 1.5px; color: var(--sky-blue); margin-top: 5px; text-transform: uppercase;">A Unit of Maa Kamakhya Group</span>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <div class="dropdown">
+                <a href="services.html">SERVICES</a>
+                <div class="dropdown-menu">
+                    <a href="services.html">Building Planing</a>
+                    <a href="services.html">Structural Design</a>
+                    <a href="services.html">Architectural Design</a>
+                    <a href="services.html">Soil Testing</a>
+                    <a href="services.html">Piling Works</a>
+                    <a href="services.html">Surveying</a>
+                    <a href="services.html">Construction</a>
+                </div>
+            </div>
+            <a href="blog.html" style="color: var(--sky-blue);">BLOG</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg">
+        
+        <!-- Hero Section -->
+        <header class="mb-stack-lg" data-aos="fade-up">
+            <span class="font-label-md text-label-md text-secondary uppercase tracking-[0.2em] mb-4 block">Our Journal</span>
+            <h1 class="font-display-lg text-display-lg mb-stack-sm max-w-3xl text-primary">Architecting the future, one story at a time.</h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Explore our latest thoughts on modern construction, sustainable design, and the journey of building luxury homes.</p>
+        </header>
+
+        <!-- Featured Post: Large Full-Bleed -->
+        <section class="mb-stack-lg relative group overflow-hidden cursor-pointer border border-outline-variant" data-aos="fade-up" onclick="location.href='blog-interior-trends.html'">
+            <div class="aspect-[21/9] w-full relative">
+                <img alt="Top Interior Design Trends in Agartala" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="blog image/blog 1 image.jpeg">
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-stack-md text-on-primary max-w-3xl">
+                    <span class="inline-block bg-secondary text-on-secondary px-3 py-1 font-label-md text-[10px] uppercase mb-4 tracking-wider">Featured Insight</span>
+                    <h2 class="font-headline-lg text-headline-lg mb-4 text-white">Top Interior Design Trends in Agartala for Your Dream Home</h2>
+                    <div class="flex items-center gap-4 text-white">
+                        <span class="font-label-md text-label-md">By VASTU Editorial</span>
+                        <span class="w-1 h-1 bg-white rounded-full"></span>
+                        <span class="font-label-md text-label-md text-white/80">8 Min Read</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Masonry Grid for Articles -->
+        <div class="masonry-grid gap-gutter" data-aos="fade-up">
+            
+            <!-- Article 1 -->
+            <article class="masonry-item border border-outline-variant hover:shadow-xl transition-shadow duration-300">
+                <div class="aspect-square overflow-hidden bg-surface-container">
+                    <img alt="Top 5 Trends in Modern Home Design for 2025" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="blog image/blog 2 image.jpeg">
+                </div>
+                <div class="p-stack-sm">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-label-md text-[12px] text-secondary uppercase tracking-widest">Trends</span>
+                        <span class="font-label-md text-[12px] text-on-surface-variant">Oct 24, 2024</span>
+                    </div>
+                    <h3 class="font-headline-sm text-headline-sm mb-4 text-primary">Top 5 Trends in Modern Home Design for 2025</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">From biophilic integrations to carbon-neutral materials, explore what defines the next decade of luxury living.</p>
+                    <a class="font-label-md text-label-md text-primary flex items-center gap-2 group hover:opacity-85" href="#">
+                        Read More 
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="masonry-item border border-outline-variant hover:shadow-xl transition-shadow duration-300">
+                <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                    <!-- Image is blank as requested; layout design is maintained -->
+                    <img alt="Structural Integrity: Why Foundations Matter More Than Finishes" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="vastu image/home 3.jpeg">
+                </div>
+                <div class="p-stack-sm">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-label-md text-[12px] text-secondary uppercase tracking-widest">Technical</span>
+                        <span class="font-label-md text-[12px] text-on-surface-variant">Oct 18, 2024</span>
+                    </div>
+                    <h3 class="font-headline-sm text-headline-sm mb-4 text-primary">Structural Integrity: Why Foundations Matter More Than Finishes</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">A deep dive into the engineering requirements for homes built on coastal and uneven terrains.</p>
+                    <a class="font-label-md text-label-md text-primary flex items-center gap-2 group hover:opacity-85" href="#">
+                        Read More 
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="masonry-item border border-outline-variant hover:shadow-xl transition-shadow duration-300">
+                <div class="aspect-[3/4] overflow-hidden bg-surface-container">
+                    <!-- Image is blank as requested; layout design is maintained -->
+                    <img alt="The New Palette: Concrete, Wood, and Light" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="vastu image/home 5.jpeg">
+                </div>
+                <div class="p-stack-sm">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-label-md text-[12px] text-secondary uppercase tracking-widest">Materials</span>
+                        <span class="font-label-md text-[12px] text-on-surface-variant">Oct 12, 2024</span>
+                    </div>
+                    <h3 class="font-headline-sm text-headline-sm mb-4 text-primary">The New Palette: Concrete, Wood, and Light</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">How modern architects are using elemental materials to create warmth in brutalist spaces.</p>
+                    <a class="font-label-md text-label-md text-primary flex items-center gap-2 group hover:opacity-85" href="#">
+                        Read More 
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article 4 -->
+            <article class="masonry-item border border-outline-variant hover:shadow-xl transition-shadow duration-300">
+                <div class="aspect-video overflow-hidden bg-surface-container">
+                    <!-- Image is blank as requested; layout design is maintained -->
+                    <img alt="Passive Design: Living With the Landscape" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="vastu image/home 4.jpeg">
+                </div>
+                <div class="p-stack-sm">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-label-md text-[12px] text-secondary uppercase tracking-widest">Sustainability</span>
+                        <span class="font-label-md text-[12px] text-on-surface-variant">Oct 05, 2024</span>
+                    </div>
+                    <h3 class="font-headline-sm text-headline-sm mb-4 text-primary">Passive Design: Living With the Landscape</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">Reducing energy costs through site orientation and natural ventilation systems.</p>
+                    <a class="font-label-md text-label-md text-primary flex items-center gap-2 group hover:opacity-85" href="#">
+                        Read More 
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+            
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <section class="mt-stack-lg bg-primary text-on-primary p-12 md:p-24 flex flex-col items-center text-center" data-aos="fade-up">
+            <h2 class="font-headline-md text-headline-md mb-6 text-white">Stay Ahead of the Curve</h2>
+            <p class="font-body-lg text-body-lg text-white/70 mb-10 max-w-xl">Join 5,000+ architects and homeowners receiving our bi-weekly dispatch on construction innovation.</p>
+            <form class="flex flex-col md:flex-row w-full max-w-lg gap-4" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                <input class="flex-grow bg-white/10 border border-white/20 text-white placeholder:text-white/40 px-6 py-4 focus:outline-none focus:border-white transition-colors" placeholder="Enter your email" type="email" required>
+                <button class="bg-white text-primary px-8 py-4 font-label-md text-label-md hover:bg-surface-bright transition-colors uppercase font-bold" type="submit">Subscribe</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="footer">
+        <div class="footer-about" data-aos="fade-up">
+            <h3 style="font-family: 'Yeseva One', serif; font-size: 2.2rem; margin-bottom: 5px;">VASTU</h3>
+            <span style="display: block; font-size: 0.85rem; font-family: 'Montserrat', sans-serif; letter-spacing: 1px; color: var(--sky-blue); margin-bottom: 20px; text-transform: uppercase;">A Unit of Maa Kamakhya Group</span>
+            <p>At VASTU, we blend modern aesthetics with timeless design principles to create living spaces that resonate with your lifestyle. From concept to completion, our dedicated team ensures every project is a masterpiece of architectural excellence and interior comfort.</p>
+        </div>
+        <div class="footer-contact" data-aos="fade-up" data-aos-delay="200">
+            <h3>LOCATION & CONTACT</h3>
+            <div class="contact-info">
+                <p><strong>Address:</strong><br>Office Ln, opposite of Tripura Sports Council, Dhaleswar, Agartala, Tripura 799001</p>
+                <p><strong>Phone:</strong><br>07005872568</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 100 });
+
+        // Scroll Effect for Navbar
+        window.addEventListener('scroll', function() {
+            let nav = document.getElementById('navbar');
+            if (window.pageYOffset > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Masonry Grid dynamic height calculator
+        function resizeGridItem(item){
+            const grid = document.getElementsByClassName("masonry-grid")[0];
+            if (!grid) return;
+            const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows') || "10");
+            const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap') || "32");
+            
+            const firstDiv = item.children[0];
+            const lastDiv = item.children[1];
+            
+            if (firstDiv && lastDiv) {
+                const height = firstDiv.getBoundingClientRect().height + lastDiv.getBoundingClientRect().height;
+                const rowSpan = Math.ceil((height + rowGap) / (rowHeight + rowGap));
+                item.style.gridRowEnd = "span " + rowSpan;
+            }
+        }
+
+        function resizeAllGridItems(){
+            const allItems = document.getElementsByClassName("masonry-item");
+            for(let x=0; x<allItems.length; x++){
+                resizeGridItem(allItems[x]);
+            }
+        }
+
+        // Run sizing on page events and load
+        window.addEventListener("load", resizeAllGridItems);
+        window.addEventListener("resize", resizeAllGridItems);
+        
+        // Periodic fallback to handle image loading delay if cache is empty
+        let loadCounter = 0;
+        const intervalId = setInterval(() => {
+            resizeAllGridItems();
+            loadCounter++;
+            if (loadCounter > 10) clearInterval(intervalId);
+        }, 300);
+
+        // Interaction hover effects
+        document.querySelectorAll('.masonry-item').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

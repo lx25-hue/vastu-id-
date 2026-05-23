@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Studio | VASTU</title>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Lora:ital,wght@0,400;1,400&family=Yeseva+One&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --deep-blue: #1A237E;
@@ -27,7 +27,7 @@
             z-index: 1000; transition: 0.3s;
         }
         nav.scrolled { background: var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 15px 50px; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--deep-blue); }
+        .logo { font-family: 'Yeseva One', serif; font-size: 2.8rem; font-weight: 400; color: var(--deep-blue); line-height: 1; display: flex; flex-direction: column; }
         .logo a { text-decoration: none; color: inherit; }
         .nav-links a { text-decoration: none; color: var(--deep-blue); margin-left: 30px; font-weight: 600; font-size: 0.9rem; }
         .nav-links a.btn { color: var(--white); }
@@ -88,18 +88,32 @@
 <body>
 
     <nav id="navbar">
-        <div class="logo"><a href="index.html">VASTU</a></div>
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: inherit; display: block;">VASTU</a>
+            <span style="display: block; font-size: 0.75rem; font-family: 'Montserrat', sans-serif; letter-spacing: 1.5px; color: var(--sky-blue); margin-top: 5px; text-transform: uppercase;">A Unit of Maa Kamakhya Group</span>
+        </div>
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
         <div class="nav-links" id="nav-links">
-            <a href="index.html#home">HOME</a>
-            <a href="index.html#experience">EXPERIENCE</a>
-            <a href="portfolio.html">PORTFOLIO</a>
-            <a href="studio.html">STUDIO</a>
-            <a href="index.html#contact" class="btn" style="padding: 10px 25px;">GET QUOTE</a>
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <div class="dropdown">
+                <a href="services.html">SERVICES</a>
+                <div class="dropdown-menu">
+                    <a href="services.html">Building Planing</a>
+                    <a href="services.html">Structural Design</a>
+                    <a href="services.html">Architectural Design</a>
+                    <a href="services.html">Soil Testing</a>
+                    <a href="services.html">Piling Works</a>
+                    <a href="services.html">Surveying</a>
+                    <a href="services.html">Construction</a>
+                </div>
+            </div>
+            <a href="blog.html">BLOG</a>
+            <a href="contact.html">CONTACT</a>
         </div>
     </nav>
 
@@ -120,14 +134,14 @@
                 <p>High-efficiency office layouts designed to boost productivity and branding. Environments that inspire.</p>
             </div>
             <div class="service-card">
-                <h3 style="color: var(--sky-blue); margin-bottom: 15px;">Consultation</h3>
-                <p>Expert 1-on-1 advice on color theory, material selection, and space planning. Your vision, realized.</p>
+                <h3 style="color: var(--sky-blue); margin-bottom: 15px;">Government DPR</h3>
+                <p>Expertly delivering high-impact government infrastructure with a focus on precision.</p>
             </div>
         </div>
     </section>
 
     <section class="team-section">
-        <img src="images/hero_bg.png" alt="Our Studio">
+        <img src="images/hero_bg.png" alt="VASTU premium interior design and architecture studio by Basu">
         <div class="team-content">
             <h2>DESIGNING WITH PURPOSE</h2>
             <p>At VASTU, we believe that every space has a story waiting to be told. Our studio is comprised of award-winning architects, passionate interior designers, and visionary planners.</p>
@@ -142,7 +156,7 @@
             <p>From initial concept to final execution, our process is designed to be seamless, transparent, and collaborative. We carefully select materials, like premium marble and custom furnishings, to ensure quality and longevity.</p>
             <p>Whether it's a cozy residential project or a high-efficiency commercial layout, we combine modern minimalism with our signature blue-toned aesthetics to create truly breathtaking spaces.</p>
         </div>
-        <img src="images/gallery4.png" alt="Our Process">
+        <img src="images/gallery4.png" alt="Professional interior design and construction process by Basu">
     </section>
 
     <script>

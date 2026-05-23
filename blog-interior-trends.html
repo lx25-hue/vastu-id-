@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Interior Design Trends in Agartala | VASTU</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Lora:ital,wght@0,400;1,400&family=Yeseva+One&family=Orbitron:wght@400;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --deep-blue: #4A90E2;
+            --sky-blue: #81D4FA;
+            --white: #FFFFFF;
+            --light-gray: #F4F7F9;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Lora', serif; background-color: var(--white); color: var(--deep-blue); overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed; width: 100%; padding: 30px 60px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transition: 0.3s;
+            background: rgba(74, 144, 226, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        nav.scrolled { padding: 20px 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); background: var(--deep-blue); }
+        .logo { font-family: 'Yeseva One', serif; font-size: 2.8rem; font-weight: 400; color: var(--white); letter-spacing: 2px; line-height: 1; display: flex; flex-direction: column; }
+        .nav-links a { font-family: 'Orbitron', sans-serif; text-decoration: none; color: var(--white); margin-left: 40px; font-weight: 600; font-size: 0.85rem; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--sky-blue); }
+
+        /* --- Dropdown Menu --- */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-menu {
+            position: absolute; top: 150%; left: 50%; transform: translateX(-50%);
+            background: var(--white); min-width: 220px; border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); padding: 15px 0;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 1000;
+        }
+        .dropdown:hover .dropdown-menu { top: 120%; opacity: 1; visibility: visible; }
+        .dropdown-menu a {
+            display: block !important; margin: 0 !important; padding: 12px 30px !important;
+            color: #333 !important; font-weight: 500 !important; font-size: 0.95rem !important; text-transform: capitalize; letter-spacing: 0 !important; transition: 0.3s;
+        }
+        .dropdown-menu a:hover { color: var(--deep-blue) !important; background: var(--light-gray); padding-left: 35px !important; }
+
+        /* --- Mobile Menu --- */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 1001; }
+        .menu-toggle .bar { width: 25px; height: 3px; background-color: var(--white); margin: 4px 0; transition: 0.4s; }
+        .menu-toggle.active .bar:nth-child(1) { transform: translate(0, 7px) rotate(-45deg); }
+        .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+        .menu-toggle.active .bar:nth-child(3) { transform: translate(0, -7px) rotate(45deg); }
+
+        /* --- Blog Specific Styles --- */
+        .page-header { padding: 150px 10% 50px; text-align: center; background: var(--light-gray); }
+        .page-header h1 { font-size: 3rem; color: var(--deep-blue); font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 5px; }
+        .page-header p { font-size: 1.1rem; color: #555; max-width: 600px; margin: 15px auto 0; font-family: 'Montserrat', sans-serif; }
+
+        .blog-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px 100px;
+            font-family: 'Merriweather', serif;
+            color: #333;
+        }
+
+        .blog-title {
+            font-size: 2.5rem;
+            color: var(--deep-blue);
+            margin-bottom: 30px;
+            font-family: 'Orbitron', sans-serif;
+            line-height: 1.3;
+            text-transform: none;
+            letter-spacing: normal;
+            text-align: center;
+        }
+
+        .blog-hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            object-fit: cover;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #444;
+        }
+
+        .blog-content h2 {
+            font-size: 1.8rem;
+            color: var(--deep-blue);
+            margin: 50px 0 20px;
+            font-family: 'Playfair Display', serif;
+            text-transform: none;
+            letter-spacing: 0.5px;
+        }
+
+        .blog-content h3 {
+            font-size: 1.4rem;
+            color: #222;
+            margin: 30px 0 15px;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: none;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .blog-content ul {
+            margin: 20px 0 30px 40px;
+        }
+
+        .blog-content li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        .blog-content .highlight-box {
+            background: var(--light-gray);
+            padding: 30px;
+            border-left: 5px solid var(--sky-blue);
+            border-radius: 0 10px 10px 0;
+            margin: 40px 0;
+            font-style: italic;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: #00668a; color: #fff; padding: 60px 10%;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;
+        }
+        .footer h3 { color: var(--sky-blue); margin-bottom: 20px; font-family: 'Montserrat', sans-serif; font-size: 1.8rem; }
+        .footer p { line-height: 1.8; opacity: 0.9; font-size: 0.95rem; font-family: 'Lora', serif; }
+        .footer .contact-info p { display: flex; flex-direction: column; margin-bottom: 15px; font-family: 'Lora', serif; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            nav { padding: 20px; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+                background: var(--deep-blue); display: flex; flex-direction: column;
+                justify-content: center; align-items: center; transition: 0.5s ease-in-out;
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { margin: 20px 0; font-size: 1.5rem; color: var(--white); }
+            .dropdown { display: flex; flex-direction: column; align-items: center; }
+            .dropdown-menu { position: static; transform: none; box-shadow: none; background: transparent; display: none; padding: 0; opacity: 1; visibility: visible; }
+            .dropdown:hover .dropdown-menu { display: flex; flex-direction: column; align-items: center; }
+            .dropdown-menu a { font-size: 1.1rem !important; color: var(--sky-blue) !important; padding: 10px !important; margin: 10px 0 !important; }
+            
+            .blog-title { font-size: 2rem; }
+            .blog-content h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: inherit; display: block;">VASTU</a>
+            <span style="display: block; font-size: 0.75rem; font-family: 'Montserrat', sans-serif; letter-spacing: 1.5px; color: var(--sky-blue); margin-top: 5px; text-transform: uppercase;">A Unit of Maa Kamakhya Group</span>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <div class="dropdown">
+                <a href="services.html">SERVICES</a>
+                <div class="dropdown-menu">
+                    <a href="services.html">Building Planing</a>
+                    <a href="services.html">Structural Design</a>
+                    <a href="services.html">Architectural Design</a>
+                    <a href="services.html">Soil Testing</a>
+                    <a href="services.html">Piling Works</a>
+                    <a href="services.html">Surveying</a>
+                    <a href="services.html">Construction</a>
+                </div>
+            </div>
+            <a href="blog.html" style="color: var(--sky-blue);">BLOG</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1 data-aos="fade-up">BLOG ARTICLE</h1>
+        <p data-aos="fade-up" data-aos-delay="200">Top Interior Design Trends in Agartala</p>
+    </section>
+
+    <div class="blog-container">
+        <article class="blog-content" data-aos="fade-up">
+            <h1 class="blog-title">Top Interior Design Trends in Agartala for Your Dream Home</h1>
+            
+            <img src="blog image/blog 1 image.jpeg" alt="Beautiful Indian Home Architecture and Interior" class="blog-hero-image">
+
+            <p>Building a dream home is not only about walls and roofs — it is about creating a space where comfort, beauty, and lifestyle come together. In recent years, homeowners in Agartala are choosing modern interior design ideas that combine luxury with functionality. Whether you are planning a new home or renovating an old house, choosing the right interior design can completely transform your living experience.</p>
+
+            <h2>Why Interior Design Matters for New Homes</h2>
+
+            <p>A well-designed home improves comfort, increases property value, and creates a better lifestyle for your family. Many homeowners in Tripura now prefer customized interior solutions that match their personality and space requirements.</p>
+
+            <div class="highlight-box">
+                <p style="margin-bottom: 0;"><strong>Professional interior design helps with:</strong></p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Better space utilization</li>
+                    <li>Modern and elegant aesthetics</li>
+                    <li>Comfortable living environments</li>
+                    <li>Improved lighting and ventilation</li>
+                    <li>Increased home value</li>
+                </ul>
+            </div>
+
+            <p>If you are building a new home in Agartala, planning the interiors from the beginning can save both time and money.</p>
+
+            <h2>Popular Interior Design Styles in Agartala</h2>
+
+            <h3>1. Modern Minimalist Design</h3>
+            <p>Modern minimalist homes are becoming highly popular in Agartala. Clean lines, neutral colors, and smart furniture create a spacious and elegant environment.</p>
+
+            <h3>2. Luxury Wooden Interiors</h3>
+            <p>Wooden textures and furniture add warmth and sophistication to homes. Many families in Tripura prefer wooden modular kitchens, wardrobes, and decorative wall panels.</p>
+
+            <h3>3. Smart Space-Saving Designs</h3>
+            <p>With compact urban homes becoming common, smart storage solutions and multifunctional furniture are in high demand.</p>
+
+            <h3>4. Natural Lighting and Open Spaces</h3>
+            <p>Homeowners now prefer open layouts with large windows to bring in natural light and fresh air, making the house feel larger and more relaxing.</p>
+
+            <h2>Choosing the Right Interior Designer in Agartala</h2>
+
+            <p>Finding the right interior designer is important for creating your dream home. A professional designer understands your vision, budget, and local construction requirements.</p>
+
+            <p><strong>Before hiring, look for:</strong></p>
+            <ul>
+                <li>Experience in residential projects</li>
+                <li>Customized design solutions</li>
+                <li>Knowledge of modern trends</li>
+                <li>Transparent pricing</li>
+                <li>Quality workmanship</li>
+            </ul>
+
+            <h2>Build Your Dream Home in Tripura</h2>
+
+            <p>Whether you are planning a luxury villa, a modern apartment, or a family home, professional interior design can bring your vision to life. Investing in quality design and construction ensures your home remains beautiful and functional for years.</p>
+
+            <p>If you are searching for the best interior design services in Agartala, choosing experienced professionals can help you create a stylish and comfortable dream home tailored to your needs.</p>
+
+        </article>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-about">
+            <h3 style="font-family: 'Yeseva One', serif; font-size: 2.2rem; margin-bottom: 5px;">VASTU</h3>
+            <span style="display: block; font-size: 0.85rem; font-family: 'Montserrat', sans-serif; letter-spacing: 1px; color: var(--sky-blue); margin-bottom: 20px; text-transform: uppercase;">A Unit of Maa Kamakhya Group</span>
+            <p>At VASTU, we blend modern aesthetics with timeless design principles to create living spaces that resonate with your lifestyle. From concept to completion, our dedicated team ensures every project is a masterpiece of architectural excellence and interior comfort.</p>
+        </div>
+        <div class="footer-contact">
+            <h3>LOCATION & CONTACT</h3>
+            <div class="contact-info">
+                <p><strong>Address:</strong><br>Office Ln, opposite of Tripura Sports Council, Dhaleswar, Agartala, Tripura 799001</p>
+                <p><strong>Phone:</strong><br>07005872568</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

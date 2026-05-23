@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | VASTU</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Lora:ital,wght@0,400;1,400&family=Yeseva+One&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --deep-blue: #4A90E2;
+            --sky-blue: #81D4FA;
+            --white: #FFFFFF;
+            --light-gray: #F4F7F9;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Lora', serif; background-color: var(--white); color: var(--deep-blue); overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed; width: 100%; padding: 30px 60px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transition: 0.3s;
+            background: rgba(74, 144, 226, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        nav.scrolled { padding: 20px 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); background: var(--deep-blue); }
+        .logo { font-family: 'Yeseva One', serif; font-size: 2.8rem; font-weight: 400; color: var(--white); letter-spacing: 4px; line-height: 1; display: flex; flex-direction: column; }
+        .nav-links a { font-family: 'Orbitron', sans-serif; text-decoration: none; color: var(--white); margin-left: 40px; font-weight: 600; font-size: 0.85rem; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--sky-blue); }
+
+        /* --- Dropdown Menu --- */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-menu {
+            position: absolute; top: 150%; left: 50%; transform: translateX(-50%);
+            background: var(--white); min-width: 220px; border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); padding: 15px 0;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 1000;
+        }
+        .dropdown:hover .dropdown-menu { top: 120%; opacity: 1; visibility: visible; }
+        .dropdown-menu a {
+            display: block !important; margin: 0 !important; padding: 12px 30px !important;
+            color: #333 !important; font-weight: 500 !important; font-size: 0.95rem !important; text-transform: capitalize; letter-spacing: 0 !important; transition: 0.3s;
+        }
+        .dropdown-menu a:hover { color: var(--deep-blue) !important; background: var(--light-gray); padding-left: 35px !important; }
+
+        /* --- Mobile Menu --- */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 1001; }
+        .menu-toggle .bar { width: 25px; height: 3px; background-color: var(--white); margin: 4px 0; transition: 0.4s; }
+        .menu-toggle.active .bar:nth-child(1) { transform: translate(0, 7px) rotate(-45deg); }
+        .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+        .menu-toggle.active .bar:nth-child(3) { transform: translate(0, -7px) rotate(45deg); }
+
+        /* --- Page Spacing --- */
+        main {
+            padding-top: 140px !important;
+        }
+        @media (max-width: 768px) {
+            main {
+                padding-top: 100px !important;
+            }
+        }
+
+        /* --- About Us Specific --- */
+        .page-header {
+            padding: 64px 8% 64px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 380px;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, rgba(0, 50, 75, 0.95) 0%, rgba(0, 102, 138, 0.75) 50%, rgba(0, 102, 138, 0.3) 100%), url('images/about%20us%20image.jpeg');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            animation: bgZoomIn 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            text-align: left;
+        }
+        .page-header h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+            letter-spacing: normal;
+        }
+        .page-header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
+        @keyframes bgZoomIn {
+            from { transform: scale(1.15); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @media (max-width: 991px) {
+            .page-header {
+                justify-content: center;
+                text-align: center;
+                padding-top: 64px;
+                padding-bottom: 64px;
+                min-height: 380px;
+            }
+            .page-header::before {
+                background-image: linear-gradient(to bottom, rgba(0, 50, 75, 0.95) 0%, rgba(0, 102, 138, 0.85) 60%, rgba(0, 102, 138, 0.6) 100%), url('images/about%20us%20image.jpeg');
+            }
+            .page-header-content {
+                max-width: 100%;
+                text-align: center;
+            }
+            .page-header h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        .team-section { padding: 50px 10% 100px; display: flex; gap: 50px; align-items: center; }
+        .team-section img { width: 45%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .team-content { width: 55%; }
+        .team-content h2 { font-size: 2.5rem; color: var(--deep-blue); margin-bottom: 20px; }
+        .team-content p { font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 20px; font-family: 'Montserrat', sans-serif; font-weight: 300; }
+
+        .process-section { padding: 50px 10% 100px; display: flex; gap: 50px; align-items: center; background: var(--light-gray); }
+        .process-section img { width: 45%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        .btn {
+            padding: 16px 45px; background: var(--deep-blue); color: var(--white);
+            text-decoration: none; border-radius: 0; display: inline-block;
+            transition: 0.3s; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 2px;
+            border: 2px solid var(--deep-blue);
+        }
+        .btn:hover { background: transparent; color: var(--deep-blue); border-color: var(--deep-blue); }
+
+        .footer {
+            background-color: #00668a; color: #fff; padding: 60px 10%;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;
+        }
+        .footer h3 { color: var(--sky-blue); margin-bottom: 20px; font-family: 'Montserrat', sans-serif; font-size: 1.8rem; }
+        .footer p { line-height: 1.8; opacity: 0.9; font-size: 0.95rem; font-family: 'Lora', serif; }
+        .footer .contact-info p { display: flex; flex-direction: column; margin-bottom: 15px; font-family: 'Lora', serif; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            nav { padding: 20px; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+                background: var(--deep-blue); display: flex; flex-direction: column;
+                justify-content: center; align-items: center; transition: 0.5s ease-in-out;
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { margin: 20px 0; font-size: 1.5rem; color: var(--white); }
+            .dropdown { display: flex; flex-direction: column; align-items: center; }
+            .dropdown-menu { position: static; transform: none; box-shadow: none; background: transparent; display: none; padding: 0; opacity: 1; visibility: visible; }
+            .dropdown:hover .dropdown-menu { display: flex; flex-direction: column; align-items: center; }
+            .dropdown-menu a { font-size: 1.1rem !important; color: var(--sky-blue) !important; padding: 10px !important; margin: 10px 0 !important; }
+            
+            .team-section, .process-section { flex-direction: column; }
+            .team-section img, .team-content, .process-section img { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: inherit; display: block;">VASTU</a>
+            <span style="display: block; font-size: 0.75rem; font-family: 'Montserrat', sans-serif; letter-spacing: 1.5px; color: var(--sky-blue); margin-top: 5px; text-transform: uppercase;">A Unit of Maa Kamakhya Group</span>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <div class="dropdown">
+                <a href="services.html">SERVICES</a>
+                <div class="dropdown-menu">
+                    <a href="services.html">Building Planing</a>
+                    <a href="services.html">Structural Design</a>
+                    <a href="services.html">Architectural Design</a>
+                    <a href="services.html">Soil Testing</a>
+                    <a href="services.html">Piling Works</a>
+                    <a href="services.html">Surveying</a>
+                    <a href="services.html">Construction</a>
+                </div>
+            </div>
+            <a href="blog.html">BLOG</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+    </nav>
+
+    <main class="max-w-[1440px] mx-auto">
+        <!-- Hero Section -->
+        <section class="page-header">
+        <div class="page-header-content" data-aos="fade-right" data-aos-duration="1000">
+            <h1>ABOUT <span style="color: var(--sky-blue);">US</span></h1>
+            <p>Discover our story, our philosophy, and the creative minds behind our beautiful spaces.</p>
+        </div>
+    </section>
+
+    <style>
+        .vision-mission-section {
+            background-color: #2C5282;
+            color: #fff;
+            padding: 100px 10%;
+            text-align: center;
+        }
+        .vm-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: var(--sky-blue);
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: block;
+        }
+        .vm-title {
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+        .vm-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            text-align: left;
+        }
+        .vm-card {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .vm-icon {
+            flex-shrink: 0;
+            color: var(--sky-blue);
+        }
+        .vm-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .vm-content p {
+            color: #ddd;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        @media (max-width: 768px) {
+            .vm-grid { grid-template-columns: 1fr; }
+            .vm-title { font-size: 2rem; }
+        }
+    </style>
+    <section class="vision-mission-section">
+        <span class="vm-subtitle" data-aos="fade-up">OUR VISION AND MISSION</span>
+        <h2 class="vm-title" data-aos="fade-up" data-aos-delay="100">Best Home Construction Company in Tripura</h2>
+        
+        <div class="vm-grid">
+            <div class="vm-card" data-aos="fade-right" data-aos-delay="200">
+                <div class="vm-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <div class="vm-content">
+                    <h3>Our Vision</h3>
+                    <p>At VASTU, our vision is to be at the forefront of the construction industry, setting new standards and redefining what is possible. We strive for a sustainable and environmentally responsible future, where our practices inspire positive change. Our vision is to continue transforming dreams into reality, inspiring others, and creating exceptional spaces that stand as enduring landmarks of our dedication to craftsmanship and customer satisfaction.</p>
+                </div>
+            </div>
+
+            <div class="vm-card" data-aos="fade-left" data-aos-delay="300">
+                <div class="vm-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <div class="vm-content">
+                    <h3>Our Mission</h3>
+                    <p>Our mission is to be your unwavering partner in turning your vision into a living, breathing reality. We aim to craft exceptional spaces that are a true reflection of your unique needs and aspirations. Through our steadfast commitment to quality, integrity, and innovation, we aspire to set new benchmarks in the construction industry that not only meet but exceed your dreams. Your dream home is our mission, and we are here to make it come true.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <img src="images/hero_bg.png" alt="VASTU premium interior design and architecture studio by Basu" data-aos="fade-right">
+        <div class="team-content" data-aos="fade-left">
+            <h2>Who We Are</h2>
+            <p>We are a dedicated construction and design company focused on creating functional, modern, and durable spaces. Our team combines creativity, engineering, and craftsmanship to deliver projects that match our clients’ vision and expectations.</p>
+            <p>With attention to detail and commitment to quality, we turn ideas into reality — on time and with excellence.</p>
+            <a href="contact.html" class="btn" style="margin-top: 15px;">WORK WITH US</a>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="team-content" data-aos="fade-right">
+            <h2>OUR PROCESS</h2>
+            <p>From initial concept to final execution, our process is designed to be seamless, transparent, and collaborative. We carefully select materials, like premium marble and custom furnishings, to ensure quality and longevity.</p>
+            <p>Whether it's a cozy residential project or a high-efficiency commercial layout, we combine modern minimalism with our signature blue-toned aesthetics to create truly breathtaking spaces.</p>
+        </div>
+        <img src="images/gallery2.png" alt="Professional interior design and construction process by Basu" data-aos="fade-left">
+    </section>
+
+    <!-- Vision and Mission section was moved to top -->
+
+    <style>
+        .awards-section { padding: 100px 10%; text-align: center; background: #fff; }
+        .awards-header { margin-bottom: 60px; }
+        .awards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .award-card {
+            border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease; background: #fff;
+        }
+        .award-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(74, 144, 226, 0.15); }
+        .award-img-wrapper { width: 100%; overflow: hidden; position: relative; background: #fafafa; display: flex; align-items: center; justify-content: center; padding: 10px; }
+        .award-img-wrapper img { width: 100%; height: auto; max-height: 400px; object-fit: contain; display: block; transition: transform 0.5s ease; border-radius: 4px; }
+        .award-card { border-bottom: 4px solid var(--deep-blue); }
+        .award-card:hover .award-img-wrapper img { transform: scale(1.05); }
+        @media (max-width: 1024px) { .awards-grid { grid-template-columns: repeat(2, 1fr); gap: 20px;} }
+        @media (max-width: 600px) { .awards-grid { grid-template-columns: 1fr; } }
+    </style>
+    <section class="awards-section" id="awards">
+        <div class="awards-header" data-aos="fade-up">
+            <p style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 3px; color: var(--sky-blue); margin-bottom: 15px; font-weight: 700; text-transform: uppercase;">RECOGNITION</p>
+            <h2 style="font-size: 2.5rem; color: var(--deep-blue);">Our Awards & Achievements</h2>
+        </div>
+        <div class="awards-grid">
+            <div class="award-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="award-img-wrapper">
+                    <img src="vastu image/IMG_20260508_201943.jpg" alt="VASTU Excellence in Architecture Award" loading="lazy">
+                </div>
+            </div>
+            <div class="award-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="award-img-wrapper">
+                    <img src="vastu image/IMG_20260508_202014.jpg" alt="VASTU Premium Interior Design Recognition" loading="lazy">
+                </div>
+            </div>
+            <div class="award-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="award-img-wrapper">
+                    <img src="vastu image/IMG_20260508_202053.jpg" alt="VASTU Construction Quality Award" loading="lazy">
+                </div>
+            </div>
+            <div class="award-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="award-img-wrapper">
+                    <img src="vastu image/IMG_20260508_202203.jpg" alt="VASTU Best Project Management Award" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-about">
+            <h3 style="font-size: 2.2rem; margin-bottom: 5px;">VASTU</h3>
+            <span style="display: block; font-size: 0.85rem; font-family: 'Montserrat', sans-serif; letter-spacing: 1px; color: var(--sky-blue); margin-bottom: 20px; text-transform: uppercase;">A Unit of Maa Kamakhya Group</span>
+            <p>At VASTU, we blend modern aesthetics with timeless design principles to create living spaces that resonate with your lifestyle. From concept to completion, our dedicated team ensures every project is a masterpiece of architectural excellence and interior comfort.</p>
+        </div>
+        <div class="footer-contact">
+            <h3>LOCATION & CONTACT</h3>
+            <div class="contact-info">
+                <p><strong>Address:</strong><br>Office Ln, opposite of Tripura Sports Council, Dhaleswar, Agartala, Tripura 799001</p>
+                <p><strong>Phone:</strong><br>07005872568</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Effect for Navbar
+        window.addEventListener('scroll', function() {
+            let nav = document.getElementById('navbar');
+            if (window.pageYOffset > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+    
+    <!-- AOS Animation Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
