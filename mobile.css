@@ -1,0 +1,258 @@
+/* ==========================================================================
+   VASTU - Isolated Mobile & Responsive Design Stylesheet
+   ==========================================================================
+   This file contains all the mobile-responsive overrides, layout adjustments,
+   and media queries for the VASTU website. 
+   
+   To prevent interaction with the desktop/original design of the website,
+   this stylesheet is linked in the HTML files and only executes inside 
+   the specified viewport widths (e.g. tablet and mobile screens).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. TABLET / LAPTOP LAYOUTS (max-width: 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    /* Awards & Achievements section */
+    .awards-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. LANDSCAPE MOBILE / MEDIUM TABLETS (max-width: 900px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+    /* Why Choose Us Grid */
+    .wcu-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   3. MOBILE DEVICES & PORTRAIT TABLETS (max-width: 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Global Navigation Menu */
+    .menu-toggle {
+        display: flex !important;
+    }
+    
+    nav {
+        padding: 20px !important;
+    }
+    
+    .nav-links {
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 100% !important;
+        height: 100vh !important;
+        background: var(--deep-blue) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        transition: 0.5s ease-in-out !important;
+    }
+    
+    .nav-links.active {
+        right: 0 !important;
+    }
+    
+    .nav-links a {
+        margin: 20px 0 !important;
+        font-size: 1.5rem !important;
+        color: var(--white) !important;
+    }
+    
+    .dropdown {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .dropdown-menu {
+        position: static !important;
+        transform: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        display: none !important;
+        padding: 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .dropdown-menu a {
+        font-size: 1.1rem !important;
+        color: var(--sky-blue) !important;
+        padding: 10px !important;
+        margin: 10px 0 !important;
+    }
+
+    /* Page Content Padding Spacing */
+    main {
+        padding-top: 100px !important;
+    }
+
+    /* Homepage Hero Section */
+    .hero {
+        padding-top: 100px !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding-left: 0 !important;
+    }
+    
+    .hero-overlay {
+        background: linear-gradient(to bottom, rgba(74, 144, 226, 0.5) 0%, rgba(74, 144, 226, 0.1) 100%) !important;
+    }
+    
+    .hero-content {
+        width: 100% !important;
+        padding: 0 20px !important;
+        margin-top: -10vh !important;
+    }
+    
+    .hero h1 {
+        font-size: 3rem !important;
+    }
+    .welcome-text {
+        font-size: 0.95rem !important;
+        letter-spacing: 3px !important;
+    }
+    .brand-text {
+        font-size: 2.2rem !important;
+        letter-spacing: 4px !important;
+        margin-bottom: 5px !important;
+    }
+
+    /* Home Page: Flip Cards Grid */
+    .cards-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Home Page: Brands Section */
+    .brand-logo-card {
+        min-width: 110px !important;
+        padding: 10px !important;
+        height: 75px !important;
+    }
+
+    /* Alternating Content Rows */
+    .alt-row, .alt-row.reverse {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 20px !important;
+        margin-bottom: 50px !important;
+    }
+    
+    .alt-row img, .alt-row .alt-text {
+        width: 100% !important;
+    }
+    
+    .alt-row img {
+        height: 250px !important;
+    }
+
+    /* Tab Buttons Layout */
+    .service-tabs {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    /* Portfolio Carousel */
+    .gallery-wrapper {
+        height: 450px !important;
+        padding: 30px 0 !important;
+    }
+    
+    .gallery-item {
+        flex: 0 0 calc(100% - 40px) !important;
+        min-width: calc(100% - 40px) !important;
+        margin: 0 20px !important;
+        height: 100% !important;
+    }
+    
+    .gallery-arrow {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 1.5rem !important;
+    }
+
+    /* Contact Form & Sections */
+    .contact {
+        padding: 60px 5% !important;
+    }
+
+    /* About Us Specific Sections */
+    .team-section, .process-section {
+        flex-direction: column !important;
+    }
+    
+    .team-section img, .team-content, .process-section img {
+        width: 100% !important;
+    }
+
+    /* Roadmap Section Layout */
+    .aesthetic-roadmap {
+        height: 500px !important;
+    }
+    
+    .point-text {
+        font-size: 1.1rem !important;
+    }
+    
+    .text-left {
+        right: 20px !important;
+    }
+    
+    .text-right {
+        left: 20px !important;
+    }
+    
+    .hover-image {
+        display: none !important; /* Hide preview images on small screens */
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+        width: 50px !important;
+        height: 50px !important;
+        bottom: 20px !important;
+        right: 20px !important;
+    }
+    
+    .whatsapp-float svg {
+        width: 28px !important;
+        height: 28px !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   4. SMALL MOBILE / SMARTPHONES (max-width: 600px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+    /* Why Choose Us Grid */
+    .wcu-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Awards Grid */
+    .awards-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   5. CUSTOM ADDITIONS & SANDBOX AREA
+   --------------------------------------------------------------------------
+   Write your new mobile-specific design/styling rules here.
+   These styles are completely isolated and won't affect the desktop website layout.
+   -------------------------------------------------------------------------- */
